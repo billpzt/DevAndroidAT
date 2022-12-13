@@ -1,4 +1,4 @@
-package com.infnet.devandroidat.main.ui.adapters
+package com.infnet.devandroidat.main.ui.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
