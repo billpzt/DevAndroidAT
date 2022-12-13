@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="input_text_field">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@color/qualy</item>
+        <item name="android:textColorHint">@color/mildmint</item>
+        <item name="android:textColor">@color/aqua</item>
+    </style>
+
+    <style name="button_style" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">48dp</item>
+        <item name="android:layout_marginHorizontal">24dp</item>
+        <item name="android:backgroundTint">@color/pumpkin</item>
+        <item name="android:textColor">@color/kabul</item>
+    </style>
+
+    <style name="frame_layout_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/kabul</item>
+        <item name="android:padding">10dp</item>
+    </style>
+</resources>

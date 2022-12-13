@@ -5,10 +5,21 @@
     android:layout_height="match_parent"
     tools:context=".main.ui.ui.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
+        <Button
+            android:id="@+id/btn_padarias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Padarias" />
+
+        <Button
+            android:id="@+id/btn_paes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paes" />
+    </LinearLayout>
 </FrameLayout>

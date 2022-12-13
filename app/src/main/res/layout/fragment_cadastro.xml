@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".login.ui.CadastroFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/kabul"
-    android:padding="10dp">
+    style="@style/frame_layout_style">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -49,13 +46,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_nome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:hint="Nome"
-                android:textSize="18sp"
-                android:background="@color/qualy"
-                android:textColorHint="@color/mildmint"
-                android:textColor="@color/aqua" />
+                style="@style/input_text_field" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -136,14 +128,8 @@
 
         <Button
             android:id="@+id/btn_next"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:layout_marginHorizontal="24dp"
             android:text="Próximo"
-            android:backgroundTint="@color/pumpkin"
-            android:textColor="@color/kabul"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            style="@style/button_style"
             app:strokeWidth="2dp"
             app:strokeColor="@color/kabul"
             app:layout_constraintEnd_toEndOf="parent"

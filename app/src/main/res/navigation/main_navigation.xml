@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.infnet.devandroidat.main.ui.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_padariasFragment"
+            app:destination="@id/padariasFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_paosFragment"
+            app:destination="@id/paesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/padariasFragment"
+        android:name="com.infnet.devandroidat.main.ui.ui.PadariasFragment"
+        android:label="fragment_padarias"
+        tools:layout="@layout/fragment_padarias" >
+        <action
+            android:id="@+id/action_padariasFragment_to_cadastrarPadariaFragment"
+            app:destination="@id/cadastrarPadariaFragment" />
+        <action
+            android:id="@+id/action_padariasFragment_to_editarPadariaFragment"
+            app:destination="@id/editarPadariaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastrarPadariaFragment"
+        android:name="com.infnet.devandroidat.main.ui.ui.CadastrarPadariaFragment"
+        android:label="fragment_cadastrar_padaria"
+        tools:layout="@layout/fragment_cadastrar_padaria" />
+    <fragment
+        android:id="@+id/editarPadariaFragment"
+        android:name="com.infnet.devandroidat.main.ui.ui.EditarPadariaFragment"
+        android:label="fragment_editar_padaria"
+        tools:layout="@layout/fragment_editar_padaria" >
+        <action
+            android:id="@+id/action_editarPadariaFragment_to_inscreverPaosFragment"
+            app:destination="@id/inscreverPaosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paesFragment"
+        android:name="com.infnet.devandroidat.main.ui.ui.PaesFragment"
+        android:label="PaosFragment"
+        tools:layout="@layout/fragment_paes" >
+        <action
+            android:id="@+id/action_paosFragment_to_cadastrarPaoFragment"
+            app:destination="@id/cadastrarPaoFragment" />
+        <action
+            android:id="@+id/action_paosFragment_to_editarPaoFragment"
+            app:destination="@id/editarPaoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastrarPaoFragment"
+        android:name="com.infnet.devandroidat.main.ui.ui.CadastrarPaoFragment"
+        android:label="CadastrarPaoFragment"
+        tools:layout="@layout/fragment_cadastrar_pao" />
+    <fragment
+        android:id="@+id/editarPaoFragment"
+        android:name="com.infnet.devandroidat.main.ui.ui.EditarPaoFragment"
+        android:label="fragment_editar_pao"
+        tools:layout="@layout/fragment_editar_pao" />
+    <fragment
+        android:id="@+id/inscreverPaesFragment"
+        android:name="com.infnet.devandroidat.main.ui.ui.InscreverPaesFragment"
+        android:label="fragment_inscrever_paos"
+        tools:layout="@layout/fragment_inscrever_paos" />
+    
+
+</navigation>

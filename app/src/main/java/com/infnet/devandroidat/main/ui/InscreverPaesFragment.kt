@@ -8,14 +8,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.infnet.devandroidat.R
+import com.infnet.devandroidat.main.ui.MainViewModel
+import com.infnet.devandroidat.utils.toast
 
-class InscreverPaosFragment : Fragment() {
+class InscreverPaesFragment : Fragment() {
 
-    val TAG = "InscreverPaosFragment"
+    val TAG = "InscreverPaesFragment"
 
     val viewModel: MainViewModel by activityViewModels()
 
-    private var _binding: FragmentInscreverPaosBinding? = null
+    private var _binding: FragmentInscreverPaesBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,7 +28,7 @@ class InscreverPaosFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentInscreverPaosBinding.inflate(inflater, container, false)
+        _binding = FragmentInscreverPaesBinding.inflate(inflater, container, false)
         val view = binding.root
         setup()
         return view
@@ -90,7 +92,7 @@ class InscreverPaosFragment : Fragment() {
 
     private fun setupRecyclerView() {
         // adapter precisa ser uma variável global para ser acessada por todos os métodos
-        binding.rvInscreverPaosNaPadaria.layoutManager = LinearLayoutManager(
+        binding.rvInscreverPaesNaPadaria.layoutManager = LinearLayoutManager(
             requireContext(),
             LinearLayoutManager.VERTICAL,
             false
@@ -105,9 +107,8 @@ class InscreverPaosFragment : Fragment() {
 
     fun atualizaRecyclerView(lista: List<PaoComId>) {
         adapter.submitList(lista)
-        binding.rvInscreverPaosNaPadaria.adapter = adapter
+        binding.rvInscreverPaesNaPadaria.adapter = adapter
     }
-
 
 
 
