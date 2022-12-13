@@ -5,56 +5,110 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.infnet.devandroidat.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class InscreverPaosFragment : Fragment() {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [InscreverPaesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class InscreverPaesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    val TAG = "InscreverPaosFragment"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    val viewModel: MainViewModel by activityViewModels()
+
+    private var _binding: FragmentInscreverPaosBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentInscreverPaosBinding.inflate(inflater, container, false)
+        val view = binding.root
+        setup()
+        return view
+    }
+
+    val adapter = InscreverPaoNaPadariaAdapter(
+        object : InscreverPaoNaPadariaListener {
+            override fun onAddClick(pao: PaoComId) {
+                inscreverPaoNaPadaria(pao)
+            }
+        }
+    )
+
+    private fun inscreverPaoNaPadaria(pao: PaoComId) {
+        viewModel.inscreverPaoNaPadaria(pao)
+    }
+
+    private fun setup() {
+        setupViews()
+        setupClickListeners()
+        setupRecyclerView()
+        setupObservers()
+
+    }
+
+    private fun setupClickListeners() {
+
+        binding.tilPesquisaPao.setEndIconOnClickListener {
+            filtrarLista(binding.inputPesquisaPao.text.toString())
+        }
+
+    }
+
+    private fun filtrarLista(query: String) {
+        val listaAntiga = viewModel.paosComId.value
+        val listaNova = mutableListOf<PaoComId>()
+
+        listaAntiga?.forEach {
+            if (it.nomePao.contains(query)){
+                listaNova.add(it)
+            }
+        }
+
+        atualizaRecyclerView(listaNova)
+
+    }
+
+    private fun onSearchClick() {
+        toast("Pesquisa pelo pao: ${binding.inputPesquisaPao.text.toString()}")
+    }
+
+    private fun setupViews() {
+        activity?.setTitle("Increver pao na padaria")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+
+    private fun setupRecyclerView() {
+        // adapter precisa ser uma variável global para ser acessada por todos os métodos
+        binding.rvInscreverPaosNaPadaria.layoutManager = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+    }
+
+    private fun setupObservers() {
+        viewModel.paosComId.observe(viewLifecycleOwner) {
+            atualizaRecyclerView(it)
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inscrever_paes, container, false)
+    fun atualizaRecyclerView(lista: List<PaoComId>) {
+        adapter.submitList(lista)
+        binding.rvInscreverPaosNaPadaria.adapter = adapter
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment InscreverPaesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            InscreverPaesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
+
+
 }
