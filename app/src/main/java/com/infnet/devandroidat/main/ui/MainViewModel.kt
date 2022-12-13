@@ -7,6 +7,12 @@ import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.ktx.toObject
+import com.infnet.devandroidat.models.Padaria
+import com.infnet.devandroidat.models.PadariaComId
+import com.infnet.devandroidat.models.Pao
+import com.infnet.devandroidat.models.PaoComId
+import com.infnet.devandroidat.repository.PadariasRepository
 
 class MainViewModel : ViewModel() {
 
@@ -222,9 +228,8 @@ class MainViewModel : ViewModel() {
 
     fun padariaToPadariaComId(padaria: Padaria, id: String): PadariaComId {
         return PadariaComId(
-            nomeProfessor = padaria.nomeProfessor,
+            nomeDono = padaria.nomeDono,
             nomePadaria = padaria.nomePadaria,
-            horario = padaria.horario,
             id = id
         )
     }
@@ -248,12 +253,12 @@ class MainViewModel : ViewModel() {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Paes //////////////////////////////////////////////////////////////////////////////////////
-    private val _paosComId = MutableLiveData<List<PaoComId>>()
-    val paosComId: LiveData<List<PaoComId>> = _alunosComId
+    private val _paesComId = MutableLiveData<List<PaoComId>>()
+    val paesComId: LiveData<List<PaoComId>> = _paesComId
     fun setPaesComId(value: List<PaoComId>) {
         Log.i(TAG, "setPaesComId" )
         Log.i(TAG, "value = ${value}" )
-        _paosComId.postValue(value)
+        _paesComId.postValue(value)
     }
 
     // Ouvir vários documentos em uma coleção
@@ -319,15 +324,14 @@ class MainViewModel : ViewModel() {
     private fun paoToPaoComId(pao: Pao, id: String): PaoComId {
         return PaoComId(
             nomePao = pao.nomePao,
-            matricula = pao.matricula,
-            idade = pao.idade,
+            tipo = pao.tipo,
             id=id
         )
     }
 
     fun addListaToPaesComId(listaInput: List<PaoComId>) {
 
-        val listaAntiga = paosComId.value
+        val listaAntiga = paesComId.value
 
         val listaNova = mutableListOf<PaoComId>()
 
@@ -343,7 +347,7 @@ class MainViewModel : ViewModel() {
     }
 
     fun modifyItemInListaPaesComId(itemModificado: PaoComId) {
-        val listaAntiga = paosComId.value
+        val listaAntiga = paesComId.value
         val listaNova = mutableListOf<PaoComId>()
 
         listaAntiga?.forEach { itemDaLista ->
@@ -367,7 +371,7 @@ class MainViewModel : ViewModel() {
 
     private fun removeFromPaesComId(listaRemocao: List<String>) {
 
-        val listaAntiga = paosComId.value
+        val listaAntiga = paesComId.value
 
         val listaNova = mutableListOf<PaoComId>()
 

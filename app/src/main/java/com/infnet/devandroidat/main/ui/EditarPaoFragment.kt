@@ -7,12 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.infnet.devandroidat.R
+import com.infnet.devandroidat.databinding.FragmentEditarPaoBinding
+import com.infnet.devandroidat.main.ui.MainViewModel
+import com.infnet.devandroidat.models.Pao
+import com.infnet.devandroidat.utils.getIntInput
+import com.infnet.devandroidat.utils.getTextInput
+import com.infnet.devandroidat.utils.navUp
 
 class EditarPaoFragment : Fragment() {
 
     val viewModel: MainViewModel by activityViewModels()
 
     private var _binding: FragmentEditarPaoBinding? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -51,18 +58,16 @@ class EditarPaoFragment : Fragment() {
         binding.apply {
             return Pao(
                 nomePao = getTextInput(inputNomePao),
-                matricula = getTextInput(inputMatricula),
-                idade = getIntInput(inputIdade)
+                tipo = getTextInput(inputTipo)
             )
         }
     }
 
     private fun setupObservers() {
-        viewModel.selectedPaoComId.observe(viewLifecycleOwner){
+        viewModel.selectedPaoComId.observe(viewLifecycleOwner) {
             binding.apply {
                 inputNomePao.setText(it.nomePao)
-                inputMatricula.setText(it.matricula)
-                inputIdade.setText(it.idade.toString())
+                inputTipo.setText(it.tipo)
             }
         }
     }
@@ -75,4 +80,5 @@ class EditarPaoFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+}
 

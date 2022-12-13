@@ -7,6 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.infnet.devandroidat.R
+import com.infnet.devandroidat.databinding.FragmentCadastrarPadariaBinding
+import com.infnet.devandroidat.main.ui.MainViewModel
+import com.infnet.devandroidat.models.Padaria
+import com.infnet.devandroidat.utils.getTextInput
+import com.infnet.devandroidat.utils.navUp
+import com.infnet.devandroidat.utils.toast
 
 class CadastrarPadariaFragment : Fragment() {
 
@@ -57,8 +63,7 @@ class CadastrarPadariaFragment : Fragment() {
         binding.apply {
             return Padaria(
                 nomePadaria = getTextInput(inputNomePadaria),
-                nomeProfessor = getTextInput(inputNomeProfessor),
-                horario = getTextInput(inputHorario)
+                nomeDono = getTextInput(inputNomeDono)
             )
         }
     }

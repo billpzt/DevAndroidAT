@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.ui.ui.PadariasFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".main.ui.ui.PadariasFragment"
+    android:background="@color/kabul">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -11,6 +13,7 @@
 
         <Button
             android:id="@+id/btn_cadastrar"
+            style="@style/button_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cadastrar"
@@ -20,9 +23,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_turmas"
+            android:id="@+id/rv_padarias"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_margin="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

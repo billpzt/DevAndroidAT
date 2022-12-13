@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.infnet.devandroidat.R
+import com.infnet.devandroidat.databinding.FragmentHomeBinding
+import com.infnet.devandroidat.utils.nav
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -37,11 +39,11 @@ class HomeFragment : Fragment() {
     private fun setupClickListeners() {
         binding.apply {
             btnPadarias.setOnClickListener {
-                nav(R.id.action_homeFragment_to_turmasFragment)
+                nav(R.id.action_homeFragment_to_padariasFragment)
             }
 
             btnPaes.setOnClickListener {
-                nav(R.id.action_homeFragment_to_alunosFragment)
+                nav(R.id.action_homeFragment_to_paesFragment)
             }
         }
     }

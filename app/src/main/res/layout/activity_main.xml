@@ -8,7 +8,6 @@
 
     <TextView
         android:id="@+id/tv_bem_vindo"
-        style="@style/input_text_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
@@ -22,6 +21,7 @@
 
     <Button
         android:id="@+id/btn_sair"
+        style="@style/button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sair"

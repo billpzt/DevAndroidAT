@@ -7,9 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.infnet.devandroidat.R
+import com.infnet.devandroidat.databinding.FragmentCadastrarPaoBinding
+import com.infnet.devandroidat.main.ui.MainViewModel
+import com.infnet.devandroidat.models.Pao
+import com.infnet.devandroidat.utils.getIntInput
+import com.infnet.devandroidat.utils.getTextInput
+import com.infnet.devandroidat.utils.navUp
+import com.infnet.devandroidat.utils.toast
 
 class CadastrarPaoFragment : Fragment() {
-
 
     val viewModel by activityViewModels<MainViewModel>()
 
@@ -58,8 +64,7 @@ class CadastrarPaoFragment : Fragment() {
         binding.apply {
             return Pao(
                 nomePao = getTextInput(inputNomePao),
-                matricula = getTextInput(inputMatricula),
-                idade = getIntInput(inputIdade)
+                tipo = getTextInput(inputTipo)
             )
         }
     }

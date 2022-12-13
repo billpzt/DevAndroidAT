@@ -8,6 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.infnet.devandroidat.R
+import com.infnet.devandroidat.databinding.FragmentPadariasBinding
+import com.infnet.devandroidat.main.ui.MainViewModel
+import com.infnet.devandroidat.main.ui.adapters.PadariaComIdAdapter
+import com.infnet.devandroidat.main.ui.adapters.PadariaComIdListener
+import com.infnet.devandroidat.models.PadariaComId
+import com.infnet.devandroidat.utils.nav
 
 class PadariasFragment : Fragment() {
 

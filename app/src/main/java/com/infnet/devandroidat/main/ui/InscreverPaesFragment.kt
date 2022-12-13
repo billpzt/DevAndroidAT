@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.infnet.devandroidat.R
+import com.infnet.devandroidat.databinding.FragmentInscreverPaesBinding
 import com.infnet.devandroidat.main.ui.MainViewModel
+import com.infnet.devandroidat.main.ui.adapters.InscreverPaoNaPadariaAdapter
+import com.infnet.devandroidat.main.ui.adapters.InscreverPaoNaPadariaListener
+import com.infnet.devandroidat.models.PaoComId
 import com.infnet.devandroidat.utils.toast
 
 class InscreverPaesFragment : Fragment() {
@@ -63,7 +67,7 @@ class InscreverPaesFragment : Fragment() {
     }
 
     private fun filtrarLista(query: String) {
-        val listaAntiga = viewModel.paosComId.value
+        val listaAntiga = viewModel.paesComId.value
         val listaNova = mutableListOf<PaoComId>()
 
         listaAntiga?.forEach {
@@ -100,7 +104,7 @@ class InscreverPaesFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.paosComId.observe(viewLifecycleOwner) {
+        viewModel.paesComId.observe(viewLifecycleOwner) {
             atualizaRecyclerView(it)
         }
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation">
     <fragment
         android:id="@+id/homeFragment"
@@ -11,7 +12,7 @@
             android:id="@+id/action_homeFragment_to_padariasFragment"
             app:destination="@id/padariasFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_paosFragment"
+            android:id="@+id/action_homeFragment_to_paesFragment"
             app:destination="@id/paesFragment" />
     </fragment>
     <fragment
@@ -38,7 +39,7 @@
         tools:layout="@layout/fragment_editar_padaria" >
         <action
             android:id="@+id/action_editarPadariaFragment_to_inscreverPaosFragment"
-            app:destination="@id/inscreverPaosFragment" />
+            app:destination="@id/inscreverPaesFragment" />
     </fragment>
     <fragment
         android:id="@+id/paesFragment"
@@ -46,10 +47,10 @@
         android:label="PaosFragment"
         tools:layout="@layout/fragment_paes" >
         <action
-            android:id="@+id/action_paosFragment_to_cadastrarPaoFragment"
+            android:id="@+id/action_paesFragment_to_cadastrarPaoFragment"
             app:destination="@id/cadastrarPaoFragment" />
         <action
-            android:id="@+id/action_paosFragment_to_editarPaoFragment"
+            android:id="@+id/action_paesFragment_to_editarPaoFragment"
             app:destination="@id/editarPaoFragment" />
     </fragment>
     <fragment
@@ -66,7 +67,7 @@
         android:id="@+id/inscreverPaesFragment"
         android:name="com.infnet.devandroidat.main.ui.ui.InscreverPaesFragment"
         android:label="fragment_inscrever_paos"
-        tools:layout="@layout/fragment_inscrever_paos" />
+        tools:layout="@layout/fragment_inscrever_paes" />
     
 
 </navigation>

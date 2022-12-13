@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.infnet.devandroidat.R
+import com.infnet.devandroidat.databinding.FragmentPaesBinding
+import com.infnet.devandroidat.main.ui.MainViewModel
+import com.infnet.devandroidat.models.PaoComId
+import com.infnet.devandroidat.utils.nav
 
 class PaesFragment : Fragment() {
 
