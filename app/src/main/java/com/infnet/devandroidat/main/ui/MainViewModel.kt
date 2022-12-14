@@ -13,11 +13,15 @@ import com.infnet.devandroidat.models.PadariaComId
 import com.infnet.devandroidat.models.Pao
 import com.infnet.devandroidat.models.PaoComId
 import com.infnet.devandroidat.repository.PadariasRepository
+import java.util.Observable
 
 class MainViewModel : ViewModel() {
 
+    private var _nome: MutableLiveData<String> = MutableLiveData()
+    val nome: MutableLiveData<String> = _nome
+
     val TAG = "ViewModel"
-    val repository = PadariasRepository.get()
+    lateinit var repository: PadariasRepository
 
     fun getCurrentUserEmail(): String {
         return repository.getCurrentUser()?.email ?: "Email não encontrado"
@@ -425,8 +429,16 @@ class MainViewModel : ViewModel() {
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     init {
+        PadariasRepository.initialize()
+        repository = PadariasRepository.get()
         observeColecaoPadarias()
         observeColecaoPaes()
+        consultarNome()
+    }
+
+    private fun consultarNome() {
+        val email = repository.getCurrentUser()?.email
+        _nome.postValue(email?:"")
     }
 
 

@@ -10,10 +10,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.infnet.devandroidat.models.Padaria
-import com.infnet.devandroidat.models.Pao
-import com.infnet.devandroidat.models.PaoComId
-import com.infnet.devandroidat.models.PaoNaPadaria
+import com.infnet.devandroidat.models.*
 
 
 const val TAG = "PadariasFirebase"
@@ -48,7 +45,6 @@ class PadariasRepository private constructor() {
 
             // Coleção de paes:
             colecaoPaes = db.collection("paes")
-
 
         }
 
@@ -137,7 +133,7 @@ class PadariasRepository private constructor() {
     fun inscreverPaoNaPadaria(idPadaria: String, paoComId: PaoComId){
         val paoNaPadaria = PaoNaPadaria(
             nomePao = paoComId.nomePao,
-            tipo = paoComId.tipo,
+            id = paoComId.id
         )
         colecaoPadarias
             .document(idPadaria)

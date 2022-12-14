@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.infnet.devandroidat.databinding.FragmentInscreverPaoNaPadariaListItemBinding
 import com.infnet.devandroidat.models.PaoComId
 
 class InscreverPaoNaPadariaAdapter(val listener: InscreverPaoNaPadariaListener) :
@@ -26,7 +27,7 @@ class InscreverPaoNaPadariaAdapter(val listener: InscreverPaoNaPadariaListener) 
     }
 
     class ViewHolder private constructor(
-        val binding: InscreverPaoNaPadariaListItemBinding,
+        val binding: FragmentInscreverPaoNaPadariaListItemBinding,
         val listener: InscreverPaoNaPadariaListener
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PaoComId, position: Int) {
@@ -45,7 +46,7 @@ class InscreverPaoNaPadariaAdapter(val listener: InscreverPaoNaPadariaListener) 
         companion object {
             fun from(parent: ViewGroup, listener: InscreverPaoNaPadariaListener): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = InscreverPaoNaPadariaListItemBinding.inflate(
+                val binding = FragmentInscreverPaoNaPadariaListItemBinding.inflate(
                     layoutInflater, parent, false
                 )
                 return ViewHolder(binding, listener)
